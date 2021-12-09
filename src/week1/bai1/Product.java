@@ -1,12 +1,13 @@
 package week1.bai1;
 
 public class Product {
-    String code , name ;
+    int code ;
+    String  name ;
     double cost ;
     String type ;
     String moneyType = "USD" ;
     public Product(){}
-    public Product(String code, String name, double cost, String type, String moneyType){
+    public Product(int code, String name, double cost, String type, String moneyType){
         this.code = code ;
         this.name = name ;
         this.cost = cost ;
@@ -14,11 +15,11 @@ public class Product {
         this.moneyType = moneyType ;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
@@ -54,4 +55,14 @@ public class Product {
         this.moneyType = moneyType;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "code=" + code +
+                ", name='" + name + '\'' +
+                ", cost=" + cost +
+                ", type='" + type + '\'' +
+                ", moneyType='" + moneyType + '\'' +
+                '}';
+    }
 }
