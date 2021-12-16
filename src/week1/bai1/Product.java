@@ -15,6 +15,13 @@ public class Product {
         this.moneyType = moneyType ;
     }
 
+    public Product(int code, String name, double cost, String type) {
+        this.code = code;
+        this.name = name;
+        this.cost = cost;
+        this.type = type;
+    }
+
     public int getCode() {
         return code;
     }
