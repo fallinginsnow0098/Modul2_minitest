@@ -1,16 +1,15 @@
-package week2.bai1;
+package week2;
 
 public class Human {
-    public static int value = 1;
-    public int id;
-    public String name ;
-    public int age ;
+    private int id;
+    private String name ;
+    private int age;
+    private static int value = 1;
 
-
-    public Human(String name, int age, double averagePoint) {
+    public Human() {
     }
 
-    public Human(int id, String name, int age) {
+    public Human(String name, int age) {
         this.id = value;
         this.name = name;
         this.age = age;
@@ -39,5 +38,18 @@ public class Human {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public static int getValue() {
+        return value;
+    }
+
+    public static void setValue(int value) {
+        Human.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + id + " name: " + name + " age: "+ age ;
     }
 }
