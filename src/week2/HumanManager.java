@@ -35,17 +35,45 @@ public class HumanManager implements Manager {
 
     @Override
     public void deleteById(int id) {
+        Human deleteHuman = null;
         for (Human human: humans) {
             if (human.getId() == id){
-                 humans.remove(human);
+                 deleteHuman = human;
             }
         }
+        humans.remove(deleteHuman);
         System.out.println("Danh sách sau khi xóa: ");
         displayAll();
     }
 
     @Override
-    public void editHuman() {
+    public Student editHuman(int id) {
+        Human editHuman = null;
+        Student editStudent = null;
+        for (Human human : humans) {
+            if (human.getId() == id && human instanceof Student ){
+                editStudent = (Student) human;
+            } else if (human.getId() == id ) {
+                editHuman = human;
+            }
+        }
+        if (editHuman!= null){
+            System.out.println("Nhập tên mới: ");
+            editHuman.setName(scanner.nextLine());
+            System.out.println("Nhập tuổi mới: ");
+            editHuman.setAge(scanner.nextInt());
+            return (Student) editHuman;
+        } else if (editStudent != null){
+            System.out.println("Nhập tên mới: ");
+            editStudent.setName(scanner.nextLine());
+            System.out.println("Nhập tuổi mới: ");
+            editStudent.setAge(scanner.nextInt());
+            System.out.println("Nhập điểm trung bình mới: ");
+            editStudent.setAveragePoint(scanner.nextDouble());
+            scanner.nextLine();
+            return editStudent;
+        }
+        return null;
     }
 
     @Override

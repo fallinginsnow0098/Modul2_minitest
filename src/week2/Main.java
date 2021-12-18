@@ -55,6 +55,14 @@ public class Main {
                     int deleteId = scanner.nextInt();
                     humanManager.deleteById(deleteId);
                     break;
+                case 5:
+                    System.out.println("Nhập id muốn sửa: ");
+                    int editId = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println(humanManager.editHuman(editId));
+                    System.out.println("____________________________________________");
+                    humanManager.displayAll();
+                    break;
                 case 6:
                     System.out.println("Sau khi sắp xếp lại danh sách: ");
                     humanManager.sortAvg();

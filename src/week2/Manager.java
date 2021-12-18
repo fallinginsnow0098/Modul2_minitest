@@ -5,7 +5,7 @@ public interface Manager {
     void addHuman(Human human);
     Human searchById(int id);
     void deleteById(int id);
-    void editHuman();
+    Student editHuman(int id);
     void sortAvg();
     void totalPoint();
 }
