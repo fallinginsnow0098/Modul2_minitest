@@ -42,10 +42,10 @@ public class Student extends Person{
     }
     @Override
     public String toString() {
-        return "Student{" + super.toString() +
-                "mathPoint=" + mathPoint +
+        return  super.toString() +
+                ", mathPoint=" + mathPoint +
                 ", physicsPoint=" + physicsPoint +
-                ", chemistryPoint=" + chemistryPoint +
-                "} " + super.toString();
+                ", chemistryPoint=" + chemistryPoint + ']';
+
     }
 }

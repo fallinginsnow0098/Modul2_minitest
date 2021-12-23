@@ -97,17 +97,23 @@ public class StudentManager {
         displayAll();
     }
     public void findHighestAveragePoint(){
-        Student studentMaxPoint = null;
+//        Student studentMaxPoint = null;
         double highestPoint = 0;
         for (Student st : studentList) {
 
             if (st.getAveragePoint() > highestPoint){
                 highestPoint = st.getAveragePoint();
-                studentMaxPoint = st;
+//                studentMaxPoint = st;
             }
         }
-        assert studentMaxPoint != null;
-        System.out.println("Sinh viên có điểm cao nhất là: " + studentMaxPoint.getName() + " với điểm trung bình: " + highestPoint);
+        System.out.println("Danh sách sinh viên có điểm TB cao nhất với diểm số: " + highestPoint);
+        for (Student st : studentList) {
+            if (st.getAveragePoint() == highestPoint){
+                System.out.println(st);
+            }
+        }
+//        assert studentMaxPoint != null;
+//        System.out.println("Sinh viên có điểm cao nhất là: " + studentMaxPoint.getName() + " với điểm trung bình: " + highestPoint);
     }
     public void displayAll(){
         for (Student st : studentList) {
