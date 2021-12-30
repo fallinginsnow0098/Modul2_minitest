@@ -28,11 +28,12 @@ public class StudentManager {
         return false;
     }
 
-    public void addStudent() {
+    public Student addStudent() {
         System.out.println("Input id");
         int id = scanner.nextInt();
         if (checkID(id)) {
             System.out.println("Duplicate id");
+            return null;
         }
         scanner.nextLine();
         System.out.println("Input name");
@@ -48,10 +49,10 @@ public class StudentManager {
         students.add(new Student(id, name, age, mathPoint, physicsPoint, chemistryPoint));
         System.out.println("Add Student: [" + name + "] complete!");
         writeFileCSV(students, PATH_NAME);
-
+        return new Student(id, name, age, mathPoint, physicsPoint, chemistryPoint);
     }
 
-    public void editStudent(String editName) {
+    public Student editStudent(String editName) {
         Student editStudent = null;
         for (Student st : students) {
             if (st.getName().equals(editName)) {
@@ -64,6 +65,7 @@ public class StudentManager {
             int newId = scanner.nextInt();
             if (checkID(newId)) {
                 System.out.println("Duplicate id");
+                return null;
             }
             System.out.println("Input new name");
             scanner.nextLine();
@@ -85,8 +87,8 @@ public class StudentManager {
             students.set(index, editStudent);
             writeFileCSV(students, PATH_NAME);
             System.out.println("Edit student: " + editName + " DONE");
-
         }
+        return editStudent;
     }
 
     public void deleteStudent(String deleteName) {
@@ -154,8 +156,7 @@ public class StudentManager {
                         student.getAge() + "," +
                         student.getMathPoint() + "," +
                         student.getPhysicsPoint() + "," +
-                        student.getChemistryPoint() + "," +
-                        student.getGPA() + "\n"
+                        student.getChemistryPoint() + "\n"
                 );
             }
             bw.close();

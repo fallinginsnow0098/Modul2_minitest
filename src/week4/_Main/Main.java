@@ -1,6 +1,9 @@
 package week4._Main;
 
 import week4._Manager.StudentManager;
+import week4._Model.Student;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -64,7 +67,8 @@ public class Main {
                     studentManager.writeFileCSV(studentManager.getStudent(), StudentManager.PATH_NAME);
                     break;
                 case 8:
-                    studentManager.readFileCSV(StudentManager.PATH_NAME);
+                    ArrayList<Student> students = studentManager.readFileCSV(StudentManager.PATH_NAME);
+                    students.forEach(System.out::println);
                     break;
             }
         } while (choice != 0);

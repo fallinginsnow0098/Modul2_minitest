@@ -42,6 +42,6 @@ public class Student extends Human{
         return " Student [" + super.toString() +
                 "|| mathPoint = " + mathPoint +
                 "|| physicsPoint = " + physicsPoint +
-                "|| chemistryPoint =" + chemistryPoint ;
+                "|| chemistryPoint = " + chemistryPoint ;
     }
 }
