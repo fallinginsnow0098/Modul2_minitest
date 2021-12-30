@@ -17,25 +17,37 @@ public class StudentManager {
     public ArrayList<Student> getStudent(){
         return students;
     }
+    public boolean checkID(int id){
+        for (Student student : students) {
+            if (student.getId() == id ){
+                return true;
+            }
+        }
+        return false;
+    }
     public void addStudent(){
         System.out.println("Input id");
         int id = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Input name");
-        String name = scanner.nextLine();
-        System.out.println("Input age");
-        int age = scanner.nextInt();
-        System.out.println("Input Math Point");
-        double mathPoint = scanner.nextDouble();
-        System.out.println("Input Physics Point");
-        double physicsPoint = scanner.nextDouble();
-        System.out.println("Input Chemistry Point");
-        double chemistryPoint = scanner.nextDouble();
-        students.add(new Student(id, name, age, mathPoint, physicsPoint, chemistryPoint));
-        System.out.println("Add Student: [" + name + "] complete!");
-        writeFileCSV(students, PATH_NAME);
-
+        if (checkID(id)){
+            System.out.println("Duplicate id");
+        } else {
+            scanner.nextLine();
+            System.out.println("Input name");
+            String name = scanner.nextLine();
+            System.out.println("Input age");
+            int age = scanner.nextInt();
+            System.out.println("Input Math Point");
+            double mathPoint = scanner.nextDouble();
+            System.out.println("Input Physics Point");
+            double physicsPoint = scanner.nextDouble();
+            System.out.println("Input Chemistry Point");
+            double chemistryPoint = scanner.nextDouble();
+            students.add(new Student(id, name, age, mathPoint, physicsPoint, chemistryPoint));
+            System.out.println("Add Student: [" + name + "] complete!");
+            writeFileCSV(students, PATH_NAME);
+        }
     }
+
     public void editStudent(String editName){
         Student editStudent = null;
         for (Student st : students ) {
@@ -47,25 +59,29 @@ public class StudentManager {
             int index = students.indexOf(editStudent);
             System.out.println("Input new id");
             int newId = scanner.nextInt();
-            System.out.println("Input new name");
-            String newName = scanner.nextLine();
-            System.out.println("Input new age");
-            int newAge = scanner.nextInt();
-            System.out.println("Input new Math Point");
-            double newMathPoint = scanner.nextDouble();
-            System.out.println("Input new Physics Point");
-            double newPhysicsPoint = scanner.nextDouble();
-            System.out.println("Input new Chemistry Point");
-            double newChemistryPoint = scanner.nextDouble();
-            editStudent.setId(newId);
-            editStudent.setName(newName);
-            editStudent.setAge(newAge);
-            editStudent.setMathPoint(newMathPoint);
-            editStudent.setPhysicsPoint(newPhysicsPoint);
-            editStudent.setChemistryPoint(newChemistryPoint);
-            students.set(index, editStudent);
-            writeFileCSV(students, PATH_NAME);
-            System.out.println("Edit student: " + editName + " DONE");
+            if (checkID(newId)){
+                System.out.println("Duplicate id");
+            } else {
+                System.out.println("Input new name");
+                String newName = scanner.nextLine();
+                System.out.println("Input new age");
+                int newAge = scanner.nextInt();
+                System.out.println("Input new Math Point");
+                double newMathPoint = scanner.nextDouble();
+                System.out.println("Input new Physics Point");
+                double newPhysicsPoint = scanner.nextDouble();
+                System.out.println("Input new Chemistry Point");
+                double newChemistryPoint = scanner.nextDouble();
+                editStudent.setId(newId);
+                editStudent.setName(newName);
+                editStudent.setAge(newAge);
+                editStudent.setMathPoint(newMathPoint);
+                editStudent.setPhysicsPoint(newPhysicsPoint);
+                editStudent.setChemistryPoint(newChemistryPoint);
+                students.set(index, editStudent);
+                writeFileCSV(students, PATH_NAME);
+                System.out.println("Edit student: " + editName + " DONE");
+            }
         }
     }
     public void deleteStudent(String deleteName){

@@ -1,13 +1,14 @@
 package week4._Main;
 
 import week4._Manager.StudentManager;
+import week4._Model.Student;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final StudentManager studentManager = new StudentManager();
-    public static final String PATH_NAME = "src/week4/_File/student.txt";
     public static void main(String[] args) {
         int choice;
         do {
@@ -18,6 +19,8 @@ public class Main {
             System.out.println("4. Search Student by ID");
             System.out.println("5. Find highest GPA Student");
             System.out.println("6. Sort Student List By GPA");
+            System.out.println("7. Write to FILE CSV");
+            System.out.println("8. Read FILE CSV");
             System.out.println("0. Exit menu");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -59,7 +62,13 @@ public class Main {
                                 break;
                         }
                     } while (choice1 != 0);
-
+                    break;
+                case 7:
+                    studentManager.writeFileCSV(studentManager.getStudent(), StudentManager.PATH_NAME);
+                    break;
+                case 8:
+                    studentManager.readFileCSV(StudentManager.PATH_NAME);
+                    break;
             }
         } while (choice != 0);
     }
