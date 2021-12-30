@@ -11,9 +11,6 @@ public class StudentManager {
     Scanner scanner = new Scanner(System.in);
 
     public Student creatStudent(){
-        System.out.println("Nhập id sinh viên");
-        int id = scanner.nextInt();
-        scanner.nextLine();
         System.out.println("Nhập vào tên sinh viên");
         String name = scanner.nextLine();
         System.out.println("Nhập vào tuổi sinh viên");
@@ -24,9 +21,10 @@ public class StudentManager {
         double physicsPoint = scanner.nextDouble();
         System.out.println("Nhập vào điểm hóa");
         double chemistryPoint = scanner.nextDouble();
-        Student student = new Student(id,name,age,mathPoint,physicsPoint,chemistryPoint);
+        return new Student(name,age,mathPoint,physicsPoint,chemistryPoint);
+    }
+    public void addStudent(Student student){
         studentList.add(student);
-        return student;
     }
     public Student updateById(int updateId){
         Student studentUpdate = null;

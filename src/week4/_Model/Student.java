@@ -1,13 +1,10 @@
-package week3.model;
+package week4._Model;
 
-public class Student extends Person{
-    private double mathPoint;
-    private double physicsPoint;
-    private double chemistryPoint;
+public class Student extends Human{
+    private double mathPoint, physicsPoint, chemistryPoint ;
 
-
-    public Student(String name, int age, double mathPoint, double physicsPoint, double chemistryPoint) {
-        super(name, age);
+    public Student(int id, String name, int age, double mathPoint, double physicsPoint, double chemistryPoint) {
+        super(id, name, age);
         this.mathPoint = mathPoint;
         this.physicsPoint = physicsPoint;
         this.chemistryPoint = chemistryPoint;
@@ -36,16 +33,15 @@ public class Student extends Person{
     public void setChemistryPoint(double chemistryPoint) {
         this.chemistryPoint = chemistryPoint;
     }
-
-    public double getAveragePoint(){
-        return (this.getMathPoint() + this.getChemistryPoint() + this.getPhysicsPoint()) / 3;
+    public double getGPA(){
+        return (mathPoint + chemistryPoint + physicsPoint) / 3 ;
     }
+
     @Override
     public String toString() {
-        return  super.toString() +
-                ", mathPoint=" + mathPoint +
-                ", physicsPoint=" + physicsPoint +
-                ", chemistryPoint=" + chemistryPoint + ']';
-
+        return " Student [" + super.toString() +
+                "|| mathPoint = " + mathPoint +
+                "|| physicsPoint = " + physicsPoint +
+                "|| chemistryPoint =" + chemistryPoint ;
     }
 }

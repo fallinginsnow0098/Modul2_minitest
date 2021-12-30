@@ -1,13 +1,15 @@
-package week3.model;
+package week4._Model;
 
-public class Person {
-    private static int value = 0;
-    private int id;
+public class Human {
+    private int id ;
     private String name;
     private int age;
 
-    public Person(String name, int age) {
-        this.id = ++value;
+    public Human() {
+    }
+
+    public Human(int id, String name, int age) {
+        this.id = id;
         this.name = name;
         this.age = age;
     }
@@ -38,9 +40,8 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Student[" +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                ", age = " + age;
+        return  "|| id=" + id +
+                "|| name='" + name + '\'' +
+                "|| age=" + age ;
     }
 }
