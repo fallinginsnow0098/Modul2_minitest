@@ -1,9 +1,6 @@
 package week4._Main;
 
 import week4._Manager.StudentManager;
-import week4._Model.Student;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -50,7 +47,7 @@ public class Main {
                     int choice1 ;
                     do {
                         System.out.println("1. Sort GPA up");
-                        System.out.println("1. Sort GPA down");
+                        System.out.println("2. Sort GPA down");
                         System.out.println("Enter choice");
                         choice1 = scanner.nextInt();
                         switch (choice1){

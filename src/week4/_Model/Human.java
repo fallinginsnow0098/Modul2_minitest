@@ -40,7 +40,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return  "|| id=" + id +
+        return  " id=" + id +
                 "|| name='" + name + '\'' +
                 "|| age=" + age ;
     }
